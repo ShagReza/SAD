@@ -2,7 +2,7 @@
 """
 Created on Mon Nov 25 14:59:28 2019
 
-@author: user
+@author: Administrator
 """
 from scipy import signal
 import librosa  
@@ -11,17 +11,15 @@ import numpy as np
 task = 'class'    ## 'class' or 'enhan'
 top_db_vad = 40
 
-sample_rate = 22050         #Sampling Frequency
-n_fft       = 705
+sample_rate = 8000          #Sampling Frequency
+n_fft       = 256
 win_length  = n_fft
-hop_length  = 256
+hop_length  = 80
 center_lib = False
 window = signal.hamming
 amp         = 'log'  ## 'lin' 'log' 'pow'
 min_mag = 10**(-6)
 n_mels = 64
-
-n_mfcc=18 
 
 nrz_max  = True   ## waveform normalization to max value
 nrz_mean = False    ## waveform normalization to mean value

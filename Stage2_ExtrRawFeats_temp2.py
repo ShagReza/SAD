@@ -21,16 +21,16 @@ import config as c
 
 from pathlib import Path
 
-import Speech_Feaures_SAD_21 as SF
+import Speech_Feaures_SAD_21_temp as SF
 import utils as u
 
 ####====================================================
-sets = 'Validation'  ## Train Validation Test
-#catg = 'Speech2\\-5&-10' ## Speech  Noise  Music Speech2PlusNoise
-catg = 'MusanNoise_vad' ## Speech  Noise_vad  Music_vad Speech2PlusNoise MusanNoise_vad
+sets = 'Test'  ## Train Validation Test
+#catg = 'Speech2\\25&20' ## Speech  Noise  Music Speech2PlusNoise
+catg = 'Music_vad' ## Speech  Noise_vad  Music_vad Speech2PlusNoise
 
-#catg_feat = 'Speech2/-5&-10_normChroma' ## Speech  Noise  Music
-catg_feat = 'MusanNoise_SadFeats' ## Speech  Noise  Music MusanNoise
+#catg_feat = 'Speech2/25&20_SadFeats' ## Speech  Noise  Music
+catg_feat = 'Music_SadFeats' ## Speech  Noise  Music
 
 #catg_feat = 'Music_chroma12'
 
@@ -66,14 +66,13 @@ if __name__ == '__main__':
 ##       SF.wave2spec(w)
 ##       SF.wave2melspec(w)
 ##       SF.wav2chroma(w)
-#       SF.wav2drugman(w)
+##       SF.wav2drugman(w)
+#       SF.wav2sadfeats(w)
    
-   with Pool(processes = 3) as pool:       
-#     pool.map(SF.wave2melspec , wav_list)
-#       pool.map(SF.wav2chroma, wav_list)
-#     pool.map(SF.wav2drugman, wav_list)
-     pool.map(SF.wav2sadfeats , wav_list)
-#     
+   with Pool(processes = 4) as pool:
+       pool.map(SF.wav2sadfeats , wav_list)
+       
+
    print(datetime.now()-start)
    print('Feature extraction Finished.')
 #   

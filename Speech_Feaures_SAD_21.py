@@ -2,7 +2,7 @@
 """
 Created on Mon Nov  4 17:27:59 2019
 
-@author: user
+@author: Administrator
 """
 
 ####====================================================
@@ -215,7 +215,7 @@ def wave2melspec(path):
         spec_mel_db = mag_spec_mel
      
     spec_mel_db = np.float32(spec_mel_db)
-    return spec_mel_db
+#    return spec_mel_db
     np.save(path.replace('.wav','.npy'), spec_mel_db)
 
 
